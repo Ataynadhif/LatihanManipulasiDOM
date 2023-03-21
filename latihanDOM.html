@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .container {
+        border-bottom: 2px solid lightgrey;
+        padding-bottom: 8px;
+        width: 70%;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Get a FizzBuzz Result!</h1>
+      <label for="inputs">Type a number</label>
+      <input type="number" name="inputs" id="numb" />
+      <button type="button" class="btn">Click here!</button>
+    </div>
+
+    <script>
+      const btn = document.querySelector(".btn");
+
+      btn.addEventListener("click", () => {
+        let num = document.getElementById("numb").value;
+        let text = "";
+        if (isNaN(num) || num < 1) {
+          const p = document.createElement("p");
+          p.innerText = "invalid input";
+          p.style.color = "red";
+          document.body.appendChild(p);
+        } else if (num % 3 === 0 && num % 5 === 0) {
+          const p = document.createElement("p");
+          p.innerText = "FizzBuzz";
+          document.body.appendChild(p);
+        } else if (num % 5 === 0) {
+          const p = document.createElement("p");
+          p.innerText = "Buzz";
+          document.body.appendChild(p);
+        } else if (num % 3 === 0) {
+          const p = document.createElement("p");
+          p.innerText = "Fizz";
+          document.body.appendChild(p);
+        } else {
+          text = num;
+        }
+        const p = document.createElement("p");
+        p.innerText = text;
+        document.body.appendChild(p);
+      });
+    </script>
+  </body>
+</html>
